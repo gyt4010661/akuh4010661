@@ -6,8 +6,10 @@ RUN apt-get install -y dbus-x11 sudo bash net-tools novnc  x11vnc xvfb superviso
 
 #wine
     dpkg --add-architecture i386 && \
-    apt update && \ 
-    apt install wine64 wine32 && \
+    wget -qO - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add - && \ 
+    apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' && \
+    apt update && \
+    apt install --install-recommends winehq-stable && \
 
 
 RUN sudo adduser akuhnet --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
