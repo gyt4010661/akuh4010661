@@ -5,7 +5,6 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y dbus-x11 sudo bash net-tools novnc  x11vnc xvfb supervisor xfce4 gnome-shell ubuntu-gnome-desktop gnome-session gdm3 tasksel ssh terminator git nano curl wget zip unzip docker.io falkon firefox wine playonlinux chromium dpkg
 
 #wine
-    dpkg --add-architecture i386 && \
     wget -qO - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add - && \ 
     apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' && \
     apt update && \
