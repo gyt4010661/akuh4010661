@@ -4,10 +4,14 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y dbus-x11 sudo bash net-tools novnc  x11vnc xvfb supervisor xfce4 gnome-shell ubuntu-gnome-desktop gnome-session gdm3 tasksel ssh terminator git nano curl wget zip unzip docker.io falkon firefox wine playonlinux chromium-browser
 
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+    && apt install -qqy --no-install-recommends ./google-chrome-stable_current_amd64.deb \
+    
 
 # Install some tools required for creating the image
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
+		firefox htop terminator gnupg2 software-properties-common \
 		curl \
 		unzip \
 		ca-certificates
